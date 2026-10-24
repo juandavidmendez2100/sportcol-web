@@ -1,0 +1,271 @@
+/* ---------- 1. Variables (paleta y valores compartidos) ---------- */
+:root {
+  --rojo-cabecera: rgb(235, 1, 1);
+  --azul-oscuro: #00031d;
+  --rojo-fondo: #00031d;
+  --gris-tarjeta: #e2e2e2;
+  --texto: #1b1b1b;
+  --blanco: #ffffff;
+  --enfoque: #bc4b00;
+
+  --espacio: 1rem;
+  --ancho-maximo: 64rem;
+}
+
+/* ---------- 2. Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 1rem; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  line-height: 1.6;
+  color: var(--texto);
+  background: var(--blanco);
+}
+
+h1, h2, h3 { line-height: 1.2; margin-block: 0 0.75rem; }
+h1 { font-size: clamp(2rem, 1.4rem + 2.5vw, 3.25rem); }
+h2 { font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem); }
+h3 { font-size: 1.25rem; }
+p  { margin-block: 0; }
+
+img { display: block; max-width: 100%; height: auto; }
+
+a { color: inherit; text-underline-offset: 0.2em; }
+
+/* Enfoque visible para quienes navegan con teclado */
+:focus-visible {
+  outline: 3px solid var(--enfoque);
+  outline-offset: 3px;
+}
+
+/* Contenedor centrado con márgenes fluidos */
+.contenedor {
+  width: min(100% - 2rem, var(--ancho-maximo));
+  margin-inline: auto;
+}
+
+/* Enlace "Saltar al contenido": solo aparece al enfocarlo */
+.saltar {
+  position: absolute;
+  top: -10rem;
+  left: 0.5rem;
+  z-index: 100;
+  padding: 0.75rem;
+  background: var(--blanco);
+  color: var(--texto);
+}
+.saltar:focus { top: 0.5rem; }
+
+/* ---------- 3. Cabecera y navegación ---------- */
+.cabecera {
+  background: var(--rojo-cabecera);
+  padding-block: 1.9rem;
+}
+
+.cabecera__interior {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.logo {
+    width: 125px;
+    height: auto;
+    object-fit: contain;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2.5rem;
+}
+
+.menu a {
+  font-size: 1.10rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--blanco);
+}
+
+.menu a:hover { text-decoration: underline; }
+
+/* ---------- 4. Hero (imagen grande con título encima) ---------- */
+.hero {
+  position: relative;
+  background: var(--azul-oscuro);
+}
+
+.hero__imagen {
+  width: 100%;
+  height: clamp(14rem, 30vw, 23rem);
+  object-fit: cover;
+}
+
+.equipo__imagen {
+  width: 100%;
+  height: clamp(14rem, 30vw, 23rem);
+  object-fit: cover;
+  object-position: center 38%;
+}
+
+/* Degradado para que el texto se lea sobre cualquier imagen */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgb(0 0 0 / 55%), transparent 60%);
+  pointer-events: none;
+}
+
+.hero .contenedor {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 2rem;
+  z-index: 1;
+}
+
+.hero__titulo {
+  margin: 0;
+  color: var(--blanco);
+}
+
+/* ---------- 5. Sección Nosotros (imagen + texto) ---------- */
+.nosotros {
+  display: grid;
+  gap: 1.5rem;
+  padding-block: 2.5rem;
+}
+
+.nosotros__figura { margin: 0; }
+
+.nosotros__imagen {
+  width: 100%;
+  height: 100%;
+  min-height: 14rem;
+  object-fit: cover;
+  background: var(--rojo-fondo);
+}  
+
+.nosotros__texto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+  background: var(--blanco);
+  color: #000000;
+}
+
+.nosotros2__texto {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+  background: var(--blanco);
+  color: #000000;
+}
+
+.nosotros2__texto h2,
+.nosotros2__texto h3,
+.nosotros2__texto p {
+  margin: 0;
+}
+
+.nosotros2__texto section {
+  display: grid;
+  gap: 0.5rem;
+}
+
+/* ---------- 6. Sección Servicios (Grid de tarjetas) ---------- */
+.servicios {
+  padding-block: 2rem 2.5rem;
+  background: var(--rojo-fondo);
+}
+
+.servicios__titulo { margin-block-end: 1.5rem; color: var(--blanco); }
+
+.rejilla {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.tarjeta {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background: var(--gris-tarjeta);
+}
+
+.tarjeta__imagen {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.tarjeta__cuerpo {
+  flex: 1;
+  padding: 1.25rem;
+}
+
+.tarjeta__cuerpo h3 { font-size: 1.05rem; }
+.tarjeta__cuerpo p  { font-size: 0.95rem; font-weight: 500; }
+
+/* ---------- 7. Pie de página ---------- */
+.pie {
+  margin-block-start: 3rem;
+  padding-block: 2.5rem;
+  background: var(--azul-oscuro);
+  color: var(--blanco);
+  font-weight: 600;
+  text-align: center;
+}
+
+/* ---------- 8. Diseño adaptable ---------- */
+
+@media (max-width: 47.999rem) {
+  .cabecera__interior {
+    flex-direction: column;
+  }
+
+  .menu {
+    justify-content: center;
+    gap: 0.5rem 1rem;
+  }
+}
+
+/* Nosotros en 2 columnas y servicios en 2 columnas */
+@media (min-width: 48rem) {
+  .nosotros {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3.5rem;
+    padding-block: 3rem;
+  }
+
+  .rejilla { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* Escritorio: servicios en 3 columnas */
+@media (min-width: 64rem) {
+  .rejilla {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 3rem;
+  }
+}
+
+/* Respeta a quienes prefieren menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+/* ---------- 9. Impresión ---------- */
+@media print {
+  .saltar, .menu { display: none; }
+  body { color: black; background: white; }
+  .tarjeta { break-inside: avoid; }
+}
