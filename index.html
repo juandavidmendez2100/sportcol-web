@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sportcol</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+  <!-- Enlace para saltar la navegación (accesibilidad con teclado) -->
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+  <!-- CABECERA: logo + navegación -->
+  <header class="cabecera">
+    <div class="contenedor cabecera__interior">
+      <img class="logo" src="imagenes/logo.png" href="#inicio">
+
+      <nav class="menu" aria-label="Principal">
+          <a href="#inicio">Inicio</a>
+          <a href="nosotros.html" target="_blank">Nosotros</a>
+          <a href="#servicios">Servicios</a>
+          <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+
+    <!-- imagen grande con título -->
+    <section class="hero" id="inicio">
+      <img class="hero__imagen" src="imagenes/fotoprincipal.jpg"
+           alt="Imagen principal del sitio" width="1600" height="600">
+      <div class="contenedor">
+        <h1 class="hero__titulo">Bienvenido a SportCol</h1>
+      </div>
+    </section>
+
+    <!-- NOSOTROS: imagen a la izquierda, texto a la derecha -->
+    <section class="nosotros contenedor" id="nosotros">
+      <figure class="nosotros__figura">
+        <img class="nosotros__imagen" src="imagenes/equipo_trabajo.jpg"
+             alt="Equipo de trabajo" width="800" height="500">
+      </figure>
+
+      <div class="nosotros__texto">
+        <h2>Nosotros</h2>
+        <p>En nuestro portal vivimos y respiramos la pasión del fútbol. Somos un espacio dedicado a llevarte 
+          al instante las últimas novedades del deporte rey, manteniéndote siempre al día con los resultados 
+          más recientes de las mejores ligas del mundo. Aquí encontrarás una cobertura completa que va más allá 
+          de los 90 minutos: desde los análisis de ruedas de prensa post-partido y las opiniones más fundamentadas, 
+          hasta el seguimiento en tiempo real del mercado de traspasos de los grandes clubes de Europa.
+        </p>
+      </div>
+    </section>
+
+    <!-- SERVICIOS: tres tarjetas -->
+    <section class="servicios" id="servicios">
+      <div class="contenedor">
+        <h2 class="servicios__titulo">Servicios</h2>
+
+        <div class="rejilla">
+          <article class="tarjeta">
+            <img class="tarjeta__imagen" src="imagenes/resultado_realmadrid.jpg"
+                 alt="Primer servicio" width="600" height="400" loading="lazy">
+            <div class="tarjeta__cuerpo">
+              <h3>Últimos Resultados</h3>
+              <p>Partidazo entre el Real Madrid y el Barcelona en la jornada más esperada del año.
+                Los merengues se llevaron la victoria con un marcador de 4-1, gracias a un hat-trick 
+                de su delantero estrella. Los aficionados disfrutaron de un espectáculo lleno de emociones y goles.
+              </p>
+            </div>
+          </article>
+
+          <article class="tarjeta">
+            <img class="tarjeta__imagen" src="imagenes/barcola.jpg"
+                 alt="Segundo servicio" width="600" height="400" loading="lazy">
+            <div class="tarjeta__cuerpo">
+              <h3>Fichajes Actuales</h3>
+              <p>El fichaje del año: un gran centrocampista llega al equipo. Barcola promete grandes 
+                cosas para la próxima temporada. El Liverpool está emocionado por la adición de un jugador 
+                tan talentoso. La premier league se llena de emoción con estos nuevos fichajes.</p>
+            </div>
+          </article>
+
+          <article class="tarjeta">
+            <img class="tarjeta__imagen" src="imagenes/prensa.jpg"
+                 alt="Tercer servicio" width="600" height="400" loading="lazy">
+            <div class="tarjeta__cuerpo">
+              <h3>Rueda de Prensa</h3>
+              <p>Mourinho se reúne con los medios de comunicación para comentar sobre los últimos 
+                acontecimientos del equipo tras el último partido contra el barcelona. El entrenador 
+                responde a preguntas sobre la estrategia y el desempeño del equipo. 
+                Aclaró: "Estamos trabajando para mejorar nuestro rendimiento en el campo." </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="pie" id="contacto">
+    <div class="contenedor">
+      <p>© SportCol 2026 | Todos los derechos reservados.</p>
+    </div>
+  </footer>
+</body>
+</html>
